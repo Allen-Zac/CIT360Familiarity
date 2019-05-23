@@ -2,9 +2,14 @@ package javacollections;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -120,15 +125,111 @@ public class JavaCollections {
                 System.out.println("\nPlease Enter Your Selection:");
                 break;
             case "M":
-                System.out.println("Place holder for Map");
+                System.out.println("\nCreate and print the key-value pairs for our map.");
+                
+                //Create a new map
+                Map<String, String> car = new HashMap<>();
+                
+                //Fill the map
+                car.put("a","Corvette");
+                car.put("b","Lamborghini");
+                car.put("c","Audi");
+                car.put("d","Ferrari");
+                
+                //Create a set to make printing key-value pairs easier.
+                Set< Map.Entry< String,String> > set = car.entrySet();    
+  
+                //Print key-value pairs.
+                for (Map.Entry< String,String> map:set) 
+                { 
+                    System.out.print(map.getKey()+":"); 
+                    System.out.println(map.getValue()); 
+                }
+                
+                System.out.println("\nRemove 'b' from our map, then re-print.");
+                
+                //Remove a key-value pair
+                car.remove("b");
+                
+                for (Map.Entry< String,String> map:set) 
+                { 
+                    System.out.print(map.getKey()+":"); 
+                    System.out.println(map.getValue()); 
+                }
+                
+                System.out.println("\nNow we will add a new key-value pair for 'b', and print both keys and values using the keySet() and values() methods.");
+                
+                //Add a new key-value pair
+                car.put("b", "Mustang");
+                
+                //Print they keys and values seperately using a different method.
+                System.out.println(car.keySet());
+                System.out.println(car.values());
+                
                 System.out.println("\nPlease Enter Your Selection:");
                 break;
             case "Q":
-                System.out.println("Place holder for Queue");
+                //Create a new Queue called carFifo
+                Queue<String> carFifo = new LinkedList<>();
+                
+                //Populate carFifo
+                carFifo.add("Focus");
+                carFifo.add("Altima");
+                carFifo.add("Civic");
+                carFifo.add("Camry");
+                
+                System.out.println("\nPrint the contents of our queue.");
+                
+                System.out.println(carFifo);
+                
+                //Remove the first item in the Queue.
+                carFifo.remove();
+                
+                System.out.println("\nAs we expected, remove() removes the first item added to the queue. It works FIFO as it should.");
+                
+                System.out.println(carFifo);
+                
+                System.out.println("\nHere we can see that adding a new item to the queue places it in the back.");
+                
+                //Add Focus back to the Queue, it should be added to the back.
+                carFifo.add("Focus");
+                
+                System.out.println(carFifo);
+                
+                System.out.println("\nWe can use peek() to look at the first item in the queue.");
+                
+                //Peek at the first item in the queue.
+                System.out.println(carFifo.peek());
+                
                 System.out.println("\nPlease Enter Your Selection:");
                 break;
             case "T":
-                System.out.println("Place holder for Tree");
+                //Create a new TreeSet called tree.
+                TreeSet<Integer> tree = new TreeSet<>();
+                
+                System.out.println("\nPrint our TreeSet. You'll notice that the values are automatically sorted least to greatest.");
+                
+                //Add the values 1-10 to to tree.
+                tree.add(2);
+                tree.add(1);
+                tree.add(4);
+                tree.add(3);
+                tree.add(7);
+                tree.add(5);
+                tree.add(9);
+                tree.add(10);
+                tree.add(6);
+                tree.add(8);
+                
+                System.out.println(tree);
+                
+                System.out.println("\nAdd '3' again to the tree. The value will not show up twice because duplicate values are not allowed.");
+                
+                //Add the value 3. It won't be added because duplicate values are not allowed.
+                tree.add(3);
+                
+                System.out.println(tree);
+                
                 System.out.println("\nPlease Enter Your Selection:");
                 break;
             case "E": 
