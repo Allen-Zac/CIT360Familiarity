@@ -1,26 +1,21 @@
 package threads;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author Zac Allen
  */
-public class Count implements Runnable {
+public class ThreadsExtended extends Threads{
     String name;
     int number;
-    //private AtomicInteger number = new AtomicInteger();
-    //Random rand = new Random();
-    int rand = ThreadLocalRandom.current().nextInt(10);
+    Random rand = new Random();
     
-    public Count(String x) {
+    public ThreadsExtended(String x) {
         name = x;
-        number = rand;
+        number = rand.nextInt(10);
     }
     
-    @Override
     public void run() {
         System.out.printf("%s is counting to %d\n", name, number);
         //Thread.sleep(number);

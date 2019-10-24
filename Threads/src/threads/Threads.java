@@ -14,7 +14,8 @@ public class Threads {
      */
     public static void main(String[] args) {
         execute();
-        
+        ThreadsExtended extended = new ThreadsExtended("Extended Thread");
+        extended.run();
     }
     
     private static Executor execute() {
